@@ -1,0 +1,26 @@
+{
+    "schemaVersion": 1,
+    "id": "appetizers",
+    "version": "${version}",
+    "name": "Assorted Appetizers",
+    "description": "TODO: this",
+    "authors": [
+        "LilyflowerFDL"
+    ],
+    "license": "GPL-3.0-only",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "gdn.hypercube.appetizers.AppetizersInit"
+        ]
+    },
+    "mixins": [
+        "appetizers.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.19.2",
+        "minecraft": "~26.1.2",
+        "java": ">=25",
+        "fabric-api": "*"
+    }
+}
