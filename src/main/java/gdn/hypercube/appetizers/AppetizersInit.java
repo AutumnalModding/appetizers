@@ -6,15 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
-import net.fabricmc.fabric.impl.creativetab.FabricCreativeModeTabBuilderImpl;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
+import net.minecraft.item.consume.ClearAllEffectsConsumeEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -86,6 +84,57 @@ public class AppetizersInit implements ModInitializer {
         register(new AppetizingFoodItem("omelette", "", false, 12, 8, SoundEvents.ENTITY_GENERIC_EAT, 4F), "omelette");
         register(new AppetizingFoodItem("ribs", "", false, 12, 8, SoundEvents.ENTITY_GENERIC_EAT, 4F), "ribs");
         register(new AppetizingFoodItem("yakiimo", "", false, 10, 6, SoundEvents.ENTITY_GENERIC_EAT, 3.5F), "yakiimo");
+
+        List<StatusEffectInstance> aesir = new ArrayList<>();
+        aesir.add(new StatusEffectInstance(StatusEffects.GLOWING, 1200));
+        aesir.add(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 1200));
+        aesir.add(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.RESISTANCE, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.REGENERATION, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.ABSORPTION, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.HASTE, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.SPEED, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 20, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.STRENGTH, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.LUCK, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.BREATH_OF_THE_NAUTILUS, 1200, 4));
+        aesir.add(new StatusEffectInstance(StatusEffects.CONDUIT_POWER, 1200, 4));
+        register(new AppetizingFoodItem("aesir", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F, new ApplyEffectsConsumeEffect(aesir)), "aesir");
+
+        register(new AppetizingFoodItem("bisque", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "bisque");
+        register(new AppetizingFoodItem("blindingstew", "Feed her a stew that makes her go blind.", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 1200))), "blindingstew");
+        register(new AppetizingFoodItem("caesar", "TWENTY-THREE STAB WOUNDS", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "caesar");
+        register(new AppetizingFoodItem("citrusdelight", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "citrusdelight");
+        register(new AppetizingFoodItem("coleslaw", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "coleslaw");
+        
+        List<StatusEffectInstance> eden = new ArrayList<>();
+        eden.add(new StatusEffectInstance(StatusEffects.RESISTANCE, 600, 1));
+        eden.add(new StatusEffectInstance(StatusEffects.REGENERATION, 600, 1));
+        eden.add(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600, 1));
+        eden.add(new StatusEffectInstance(StatusEffects.ABSORPTION, 600, 1));
+        eden.add(new StatusEffectInstance(StatusEffects.HASTE, 600, 1));
+        eden.add(new StatusEffectInstance(StatusEffects.SPEED, 600, 1));
+        eden.add(new StatusEffectInstance(StatusEffects.STRENGTH, 600, 1));
+        eden.add(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 600, 1));
+        register(new AppetizingFoodItem("eden", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F, new ApplyEffectsConsumeEffect(eden)), "eden");
+
+        register(new AppetizingFoodItem("escargot", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.SPEED, 600, 4))), "escargot");
+        register(new AppetizingFoodItem("eyeball", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "eyeball");
+        register(new AppetizingFoodItem("gumbo", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "gumbo");
+        register(new AppetizingFoodItem("kimchi", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "kimchi");
+        register(new AppetizingFoodItem("meatball", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "meatball");
+        register(new AppetizingFoodItem("miso", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "miso");
+        register(new AppetizingFoodItem("monkeydelight", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "monkeydelight");
+        register(new AppetizingFoodItem("mystery", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "mystery");
+        register(new AppetizingFoodItem("rice-egg", "You're telling me a shrimp fried this rice?", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "rice-egg");
+        register(new AppetizingFoodItem("rice-pork", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 600, 1))), "rice-pork");
+        register(new AppetizingFoodItem("rice-pudding", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "rice-pudding");
+        register(new AppetizingFoodItem("rice", "", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "rice");
+        register(new AppetizingFoodItem("valid", "Killsign sold separately.", false, 10, 7, SoundEvents.ENTITY_GENERIC_EAT, 2.5F), "valid");
 
         // Four. Hundred. Drinks.
         register(new AppetizingFoodItem("7deadlysins", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "7deadlysins");
@@ -186,7 +235,7 @@ public class AppetizersInit implements ModInitializer {
         register(new AppetizingFoodItem("eggnogglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "eggnogglass");
         register(new AppetizingFoodItem("electricshark", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "electricshark");
         register(new AppetizingFoodItem("emeraldglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, 6000, 4))), "emeraldglass");
-        register(new AppetizingFoodItem("eminence", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "eminence");
+        register(new AppetizingFoodItem("eminence", "Blood of the Gods...", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(aesir)), "eminence");
         register(new AppetizingFoodItem("empress75", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "empress75");
         register(new AppetizingFoodItem("erikasurprise", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "erikasurprise");
         register(new AppetizingFoodItem("espressomartini", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "espressomartini");
@@ -210,7 +259,7 @@ public class AppetizersInit implements ModInitializer {
         register(new AppetizingFoodItem("graveyard", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "graveyard");
         register(new AppetizingFoodItem("greenteaglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "greenteaglass");
         register(new AppetizingFoodItem("grenadineglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "grenadineglass");
-        register(new AppetizingFoodItem("grogglass", "Won't remove nanomachines.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "grogglass");
+        register(new AppetizingFoodItem("grogglass", "Won't remove nanomachines.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ClearAllEffectsConsumeEffect()), "grogglass");
         register(new AppetizingFoodItem("gsodaglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "gsodaglass");
         register(new AppetizingFoodItem("heartbreakmountain", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "heartbreakmountain");
         register(new AppetizingFoodItem("hippiesdelightglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "hippiesdelightglass");
@@ -220,7 +269,7 @@ public class AppetizersInit implements ModInitializer {
         register(new AppetizingFoodItem("icedcoffeeglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "icedcoffeeglass");
         register(new AppetizingFoodItem("icedgreenteaglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "icedgreenteaglass");
         register(new AppetizingFoodItem("icedteaglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "icedteaglass");
-        register(new AppetizingFoodItem("iceglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "iceglass");
+        register(new AppetizingFoodItem("iceglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 600, 1))), "iceglass");
         register(new AppetizingFoodItem("irishcoffeeglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "irishcoffeeglass");
         register(new AppetizingFoodItem("irishcreamglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "irishcreamglass");
         register(new AppetizingFoodItem("irishslammer", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "irishslammer");
@@ -229,7 +278,7 @@ public class AppetizersInit implements ModInitializer {
         register(new AppetizingFoodItem("kalimotxo", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "kalimotxo");
         register(new AppetizingFoodItem("kiraspecial", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "kiraspecial");
         register(new AppetizingFoodItem("kvass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "kvass");
-        register(new AppetizingFoodItem("lamplight", "oh goodness gracious I'm stuck in an elevator with the messiah and also literally god themself this is awkward", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "lamplight");
+        register(new AppetizingFoodItem("lamplight", "oh goodness gracious I'm stuck in an elevator with the messiah", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.GLOWING, 1200))), "lamplight");
         register(new AppetizingFoodItem("lean", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "lean");
         register(new AppetizingFoodItem("lemonade", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "lemonade");
         register(new AppetizingFoodItem("lemonadeglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "lemonadeglass");
@@ -244,7 +293,7 @@ public class AppetizersInit implements ModInitializer {
         register(new AppetizingFoodItem("margaritaglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "margaritaglass");
         register(new AppetizingFoodItem("mariejulep", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "mariejulep");
         register(new AppetizingFoodItem("martiniglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "martiniglass");
-        register(new AppetizingFoodItem("mayojito", "Revolting.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "mayojito");
+        register(new AppetizingFoodItem("mayojito", "Revolting.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.POISON, 600))), "mayojito");
         register(new AppetizingFoodItem("meadglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "meadglass");
         register(new AppetizingFoodItem("milkshake", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "milkshake");
         register(new AppetizingFoodItem("mimeosa", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "mimeosa");
