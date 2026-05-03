@@ -96,7 +96,7 @@ public class AppetizersDrinks {
         AppetizersInit.register(new AppetizingFoodItem("eggnogglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "eggnogglass");
         AppetizersInit.register(new AppetizingFoodItem("electricshark", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "electricshark");
         AppetizersInit.register(new AppetizingFoodItem("emeraldglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, 6000, 4))), "emeraldglass");
-        AppetizersInit.register(new AppetizingFoodItem("eminence", "Often called the \"nectar of the gods\".\n The label doesn't say which ones, though.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, MREConsumeEffect.INSTANCE), "eminence");
+        AppetizersInit.register(new AppetizingFoodItem("eminence", "Often called the \"nectar of the gods\".\nThe label doesn't say which ones, though.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, MREConsumeEffect.INSTANCE), "eminence");
         AppetizersInit.register(new AppetizingFoodItem("empress75", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "empress75");
         AppetizersInit.register(new AppetizingFoodItem("erikasurprise", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "erikasurprise");
         AppetizersInit.register(new AppetizingFoodItem("espressomartini", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "espressomartini");

@@ -294,7 +294,7 @@
 
   "effect.appetizers.cogchamp": "Coggers!",
   "effect.appetizers.silenced": "Silenced",
-  "effect.appetizers.graveyard": "Dread",
+  "effect.appetizers.dread": "Dread",
 
   "death.attack.kimchi": "%1$s couldn't handle the spice.",
   "death.attack.dread": "%1$s didn't read the warning label.",
