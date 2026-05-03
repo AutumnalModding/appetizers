@@ -3,6 +3,7 @@
     "package": "gdn.hypercube.appetizers.mixin",
     "compatibilityLevel": "JAVA_25",
     "mixins": [
+        "CPNHMixin"
     ],
     "injectors": {
         "defaultRequire": 1

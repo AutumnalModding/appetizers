@@ -290,5 +290,13 @@
   "item.appetizers.whiterussianglass": "White Russian",
   "item.appetizers.wineglass": "Wine Glass",
   "item.appetizers.xenobasher": "Xeno Basher",
-  "item.appetizers.zombiecocktail": "Zombie Cocktail"
+  "item.appetizers.zombiecocktail": "Zombie Cocktail",
+
+  "effect.appetizers.cogchamp": "Coggers!",
+  "effect.appetizers.silenced": "Silenced",
+  "effect.appetizers.graveyard": "Dread",
+
+  "death.attack.kimchi": "%1$s couldn't handle the spice.",
+  "death.attack.dread": "%1$s didn't read the warning label.",
+  "death.attack.drgibb": "%1$s experienced medical malpractice."
 }

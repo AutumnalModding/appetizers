@@ -11,7 +11,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "gdn.hypercube.appetizers.AppetizersInit"
+          "gdn.hypercube.appetizers.init.AppetizersInit"
         ]
     },
     "mixins": [
