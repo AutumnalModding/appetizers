@@ -7,9 +7,11 @@ import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.sound.SoundEvents;
 
 public class AppetizersIceCreams {
+    private static final StatusEffectInstance regen = new StatusEffectInstance(StatusEffects.REGENERATION, 600, 1);
+
     public static void init() {
         AppetizersInit.register(new AppetizingFoodItem("bananasplit", "", true, 5, 2, SoundEvents.ITEM_HONEY_BOTTLE_DRINK, 2F), "bananasplit");
-        AppetizersInit.register(new AppetizingFoodItem("blooddrop", "Disclaimer: not made with actual blood.\n\nWe think.", true, 3, 0, SoundEvents.ITEM_HONEY_BOTTLE_DRINK, 1.5F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 600, 1))), "blooddrop");
+        AppetizersInit.register(new AppetizingFoodItem("blooddrop", "Disclaimer: not made with actual blood.\n\nWe think.", true, 3, 0, SoundEvents.ITEM_HONEY_BOTTLE_DRINK, 1.5F, new ApplyEffectsConsumeEffect(regen)), "blooddrop");
         AppetizersInit.register(new AppetizingFoodItem("caramel", "", true, 3, 0, SoundEvents.ITEM_HONEY_BOTTLE_DRINK, 1.5F), "caramel");
         AppetizersInit.register(new AppetizingFoodItem("choco", "", true, 3, 0, SoundEvents.ITEM_HONEY_BOTTLE_DRINK, 1.5F), "choco");
         AppetizersInit.register(new AppetizingFoodItem("coconut", "", true, 3, 0, SoundEvents.ITEM_HONEY_BOTTLE_DRINK, 1.5F), "coconut");

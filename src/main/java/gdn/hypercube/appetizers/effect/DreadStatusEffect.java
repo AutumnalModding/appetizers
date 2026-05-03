@@ -17,7 +17,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 public class DreadStatusEffect extends StatusEffect {
-    public static final RegistryKey<DamageType> DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of("appetizers", "graveyard"));
+    public static final RegistryKey<DamageType> DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of("appetizers", "dread"));
 
     public DreadStatusEffect() {
         super(StatusEffectCategory.HARMFUL, 0x000000);

@@ -89,14 +89,14 @@ public class AppetizersDrinks {
         AppetizersInit.register(new AppetizingFoodItem("dirtywastelander", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "dirtywastelander");
         AppetizersInit.register(new AppetizingFoodItem("doctorsdelightglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(ddelight)), "doctorsdelightglass");
         AppetizersInit.register(new AppetizingFoodItem("doublecreamblaster", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "doublecreamblaster");
-        AppetizersInit.register(new AppetizingFoodItem("dr_gibb_glass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, DrGibbConsumeEffect.INSTANCE), "dr_gibb_glass");
+        AppetizersInit.register(new AppetizingFoodItem("dr_gibb_glass", "May contain malpractice.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, DrGibbConsumeEffect.INSTANCE), "dr_gibb_glass");
         AppetizersInit.register(new AppetizingFoodItem("dragonsblood", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(drblood)), "dragonsblood");
         AppetizersInit.register(new AppetizingFoodItem("dragonsbreath", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(drbreath)), "dragonsbreath");
         AppetizersInit.register(new AppetizingFoodItem("driestmartiniglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "driestmartiniglass");
         AppetizersInit.register(new AppetizingFoodItem("eggnogglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "eggnogglass");
         AppetizersInit.register(new AppetizingFoodItem("electricshark", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "electricshark");
         AppetizersInit.register(new AppetizingFoodItem("emeraldglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, 6000, 4))), "emeraldglass");
-        AppetizersInit.register(new AppetizingFoodItem("eminence", "Blood of a god.\nThe label doesn't say who..", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, MREConsumeEffect.INSTANCE), "eminence");
+        AppetizersInit.register(new AppetizingFoodItem("eminence", "Often called the \"nectar of the gods\".\n The label doesn't say which ones, though.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, MREConsumeEffect.INSTANCE), "eminence");
         AppetizersInit.register(new AppetizingFoodItem("empress75", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "empress75");
         AppetizersInit.register(new AppetizingFoodItem("erikasurprise", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "erikasurprise");
         AppetizersInit.register(new AppetizingFoodItem("espressomartini", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "espressomartini");
