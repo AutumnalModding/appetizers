@@ -37,5 +37,18 @@ public class AppetizersMiscFood {
         AppetizersInit.register(new AppetizingFoodItem("yakiimo", "", false, 10, 6, SoundEvents.ENTITY_GENERIC_EAT, 3.5F), "yakiimo");
 
         AppetizersInit.register(new AppetizingFoodItem("rice_pile", "", false, 2, 0, SoundEvents.ENTITY_GENERIC_EAT, 0.5F), "rice_pile");
+
+        AppetizersInit.register(new AppetizingFoodItem("beeftaco", "", false, 8, 8, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "beeftaco");
+        AppetizersInit.register(new AppetizingFoodItem("beeftacosupreme", "", false, 12, 12, SoundEvents.ENTITY_GENERIC_EAT, 6.5F), "beeftacosupreme");
+        AppetizersInit.register(new AppetizingFoodItem("dragontaco", "", false, 20, 20, SoundEvents.ENTITY_GENERIC_EAT, 10.0F), "dragontaco");
+        AppetizersInit.register(new AppetizingFoodItem("fishtaco", "", false, 8, 8, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "fishtaco");
+        AppetizersInit.register(new AppetizingFoodItem("softtaco", "", false, 8, 8, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "softtaco");
+        AppetizersInit.register(new AppetizingFoodItem("chickentaco", "", false, 8, 8, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "chickentaco");
+        AppetizersInit.register(new AppetizingFoodItem("chickentacosupreme", "", false, 12, 12, SoundEvents.ENTITY_GENERIC_EAT, 6.5F), "chickentacosupreme");
+
+        AppetizersInit.register(new AppetizingFoodItem("cannoli", "", false, 4, 4, SoundEvents.ENTITY_GENERIC_EAT, 1.0F), "cannoli");
+        AppetizersInit.register(new AppetizingFoodItem("pretzel", "", false, 2, 2, SoundEvents.ENTITY_GENERIC_EAT, 0.75F), "pretzel");
+        AppetizersInit.register(new AppetizingFoodItem("dumplings", "", false, 7, 5, SoundEvents.ENTITY_GENERIC_EAT, 3.75F), "dumplings");
+        AppetizersInit.register(new AppetizingFoodItem("onionrings", "", false, 3, 3, SoundEvents.ENTITY_GENERIC_EAT, 1.5F), "onionrings");
     }
 }
