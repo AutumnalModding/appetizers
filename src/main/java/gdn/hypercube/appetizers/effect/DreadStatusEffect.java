@@ -1,7 +1,6 @@
 package gdn.hypercube.appetizers.effect;
 
 import gdn.hypercube.appetizers.init.AppetizersInit;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageType;
@@ -34,21 +33,20 @@ public class DreadStatusEffect extends StatusEffect {
         if (effect != null) {
             int duration = effect.getDuration();
 
-            PlayerEntity client = MinecraftClient.getInstance().player;
-            if (entity instanceof PlayerEntity player && client != null && player.getUuid() == client.getUuid()) {
+            if (entity instanceof PlayerEntity player) {
                 switch (duration) {
                     case 6000: {
-                        client.sendOverlayMessage(Text.literal("Your mind goes numb...").formatted(Formatting.RED));
+                        player.sendOverlayMessage(Text.literal("Your mind goes numb...").formatted(Formatting.RED));
                         break;
                     }
 
                     case 1200: {
-                        client.sendOverlayMessage(Text.literal("You are overwhelmed with pain...").formatted(Formatting.RED));
+                        player.sendOverlayMessage(Text.literal("You are overwhelmed with pain...").formatted(Formatting.RED));
                         break;
                         }
 
                     case 600: {
-                        client.sendOverlayMessage(Text.literal("Impending doom approaches...").formatted(Formatting.RED));
+                        player.sendOverlayMessage(Text.literal("Impending doom approaches...").formatted(Formatting.RED));
                         break;
                     }
                 }
