@@ -2,8 +2,8 @@ package gdn.hypercube.appetizers.effect;
 
 import gdn.hypercube.appetizers.init.AppetizersInit;
 import gdn.hypercube.appetizers.util.EidosEntry;
+import gdn.hypercube.appetizers.util.NonUpdatingSEI;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -13,12 +13,9 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.Vec3d;
 
@@ -39,10 +36,10 @@ public class ChronoAnchorAtHome extends StatusEffect {
     public boolean applyUpdateEffect(ServerWorld world, LivingEntity entity, int amplifier) {
         UUID uuid = entity.getUuid();
         if (!EIDOS_CHANGELOG.containsKey(uuid)) {
-            List<StatusEffectInstance> effects = new ArrayList<>();
+            List<NonUpdatingSEI> effects = new ArrayList<>();
             entity.getStatusEffects().forEach(instance -> {
                 if (instance.getEffectType() != AppetizersInit.CHRONO_ANCHOR) {
-                    effects.add(instance);
+                    effects.add(new NonUpdatingSEI(instance.getEffectType(), instance.getDuration(), instance.getAmplifier()));
                 }
             });
 
@@ -113,7 +110,7 @@ public class ChronoAnchorAtHome extends StatusEffect {
                     }
                 }
                 for (StatusEffectInstance instance : entry.effects()) {
-                    entity.addStatusEffect(instance);
+                    entity.addStatusEffect(new StatusEffectInstance(instance.getEffectType(), instance.getDuration(), instance.getAmplifier()));
                 }
 
                 if (entity instanceof PlayerEntity player) {
