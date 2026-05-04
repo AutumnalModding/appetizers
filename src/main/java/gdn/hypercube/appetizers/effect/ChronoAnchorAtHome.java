@@ -11,7 +11,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.HungerManager;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Pair;
 
 public class ChronoAnchorAtHome extends StatusEffect {
     private static final HashMap<UUID, EidosEntry> EIDOS_CHANGELOG = new HashMap<>();
@@ -36,26 +40,76 @@ public class ChronoAnchorAtHome extends StatusEffect {
                     effects.add(instance);
                 }
             });
-            EidosEntry entry = new EidosEntry(entity.getEntityPos(), entity.getHealth(), entity.getFireTicks(), entity.getFrozenTicks(), effects);
+
+            EidosEntry.PlayerSpecific data = null;
+            if (entity instanceof PlayerEntity player) {
+                HungerManager manager = player.getHungerManager();
+                data = new EidosEntry.PlayerSpecific(
+                        manager.getFoodLevel(),
+                        manager.getSaturationLevel(),
+                        player.experienceLevel,
+                        player.totalExperience,
+                        player.experienceProgress
+                );
+            }
+
+            EidosEntry entry = new EidosEntry(
+                    entity.getEntityPos(),
+                    entity.getHealth(),
+                    entity.getFireTicks(),
+                    entity.getFrozenTicks(),
+                    entity.age,
+                    entity.sidewaysSpeed,
+                    entity.upwardSpeed,
+                    entity.forwardSpeed,
+                    entity.getYaw(),
+                    new Pair<>(entity.bodyYaw, entity.headYaw),
+                    new Pair<>(entity.lastBodyYaw, entity.lastHeadYaw),
+                    new Pair<>(entity.getPitch(), entity.lastPitch),
+                    new Pair<>(entity.getRotationVector(), entity.getHeadRotationVector()),
+                    effects,
+                    data
+            );
             EIDOS_CHANGELOG.put(uuid, entry);
         }
 
         StatusEffectInstance effect = entity.getStatusEffect(AppetizersInit.CHRONO_ANCHOR);
         if (effect != null && effect.getDuration() <= 1) {
             EidosEntry entry = EIDOS_CHANGELOG.get(uuid);
-            entity.teleport(entry.position().x, entry.position().y, entry.position().z, false);
+            entity.requestTeleport(entry.position().x, entry.position().y, entry.position().z);
+            entity.setAngles(entry.pitch().getLeft(), entry.yaw());
             entity.setHealth(entry.health());
             entity.setFireTicks(entry.fireTicks());
             entity.setFrozenTicks(entry.frostTicks());
+            entity.age = entry.age();
+            entity.sidewaysSpeed = entry.sideways();
+            entity.upwardSpeed = entry.upward();
+            entity.forwardSpeed = entry.forward();
+            entity.bodyYaw = entry.limbYaw().getLeft();
+            entity.headYaw = entry.limbYaw().getRight();
+            entity.lastBodyYaw = entry.lastYaw().getLeft();
+            entity.lastHeadYaw = entry.lastYaw().getRight();
+            entity.lastPitch = entry.pitch().getRight();
+
             for (StatusEffectInstance instance : entity.getStatusEffects()) {
                 if (instance.getEffectType() != AppetizersInit.CHRONO_ANCHOR) {
                     entity.removeStatusEffect(instance.getEffectType());
                 }
             }
-
             for (StatusEffectInstance instance : entry.effects()) {
                 entity.addStatusEffect(instance);
             }
+
+            if (entity instanceof PlayerEntity player) {
+                EidosEntry.PlayerSpecific data = entry.playerdata();
+                HungerManager manager = player.getHungerManager();
+                manager.setFoodLevel(data.hunger());
+                manager.setSaturationLevel(data.saturation());
+                player.experienceLevel = data.level();
+                player.totalExperience = data.total();
+                player.experienceProgress = data.progress();
+            }
+
             EIDOS_CHANGELOG.remove(entity.getUuid());
         }
 
