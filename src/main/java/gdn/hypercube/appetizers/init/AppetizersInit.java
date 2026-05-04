@@ -3,7 +3,10 @@ package gdn.hypercube.appetizers.init;
 import gdn.hypercube.appetizers.block.JarBlock;
 import gdn.hypercube.appetizers.effect.CogchampStatusEffect;
 import gdn.hypercube.appetizers.effect.DreadStatusEffect;
+import gdn.hypercube.appetizers.effect.HeartAttackStatusEffect;
+import gdn.hypercube.appetizers.effect.ChronoAnchorAtHome;
 import gdn.hypercube.appetizers.effect.SilencedStatusEffect;
+import gdn.hypercube.appetizers.effect.TimeBombStatusEffect;
 import gdn.hypercube.appetizers.util.effect.AntifreezeConsumeEffect;
 import gdn.hypercube.appetizers.util.effect.DrGibbConsumeEffect;
 import gdn.hypercube.appetizers.util.effect.KimchiConsumeEffect;
@@ -39,6 +42,9 @@ public class AppetizersInit implements ModInitializer {
     public static final RegistryEntry<StatusEffect> DREAD = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("appetizers", "dread"), new DreadStatusEffect());
     public static final RegistryEntry<StatusEffect> COGCHAMP = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("appetizers", "cogchamp"), new CogchampStatusEffect());
     public static final RegistryEntry<StatusEffect> SILENCED = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("appetizers", "silenced"), new SilencedStatusEffect());
+    public static final RegistryEntry<StatusEffect> TIMEBOMB = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("appetizers", "timebomb"), new TimeBombStatusEffect());
+    public static final RegistryEntry<StatusEffect> CHRONO_ANCHOR = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("appetizers", "chrono_anchor"), new ChronoAnchorAtHome());
+    public static final RegistryEntry<StatusEffect> HEART_ATTACK = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("appetizers", "sheer_heart_attack"), new HeartAttackStatusEffect());
 
     public static final Block JAR = new JarBlock();
 

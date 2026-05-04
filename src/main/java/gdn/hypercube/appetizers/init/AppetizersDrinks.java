@@ -172,13 +172,13 @@ public class AppetizersDrinks {
         AppetizersInit.register(new AppetizingFoodItem("pomtwist", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "pomtwist");
         AppetizersInit.register(new AppetizingFoodItem("prairieoyster", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "prairieoyster");
         AppetizersInit.register(new AppetizingFoodItem("prisonwine", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "prisonwine");
-        AppetizersInit.register(new AppetizingFoodItem("proj_manhattanglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "proj_manhattanglass");
+        AppetizersInit.register(new AppetizingFoodItem("proj_manhattanglass", "Now I am become Methe, drinker of alcohols.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "proj_manhattanglass");
         AppetizersInit.register(new AppetizingFoodItem("pumpkinspicelatte", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "pumpkinspicelatte");
         AppetizersInit.register(new AppetizingFoodItem("pwineglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.POISON, 600, 3))), "pwineglass");
         AppetizersInit.register(new AppetizingFoodItem("quadruplecreamchalice", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "quadruplecreamchalice");
         AppetizersInit.register(new AppetizingFoodItem("radler", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "radler");
         AppetizersInit.register(new AppetizingFoodItem("red_meadglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "red_meadglass");
-        AppetizersInit.register(new AppetizingFoodItem("rewriter", "Chrono Anchor → Dispel", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "rewriter");
+        AppetizersInit.register(new AppetizingFoodItem("rewriter", "Don't cast Dispel.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(AppetizersInit.CHRONO_ANCHOR, 1200))), "rewriter");
         AppetizersInit.register(new AppetizingFoodItem("rootbeerfloatglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "rootbeerfloatglass");
         AppetizersInit.register(new AppetizingFoodItem("rootbeerglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "rootbeerglass");
         AppetizersInit.register(new AppetizingFoodItem("royrogers", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "royrogers");
@@ -211,7 +211,7 @@ public class AppetizersDrinks {
         AppetizersInit.register(new AppetizingFoodItem("strayglass", "Meow.", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "strayglass");
         AppetizersInit.register(new AppetizingFoodItem("sugarglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.SPEED, 600, 3))), "sugarglass");
         AppetizersInit.register(new AppetizingFoodItem("sweetbloodshot", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "sweetbloodshot");
-        AppetizersInit.register(new AppetizingFoodItem("syndicatebomb", "Somebody set us up the bomb!", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "syndicatebomb");
+        AppetizersInit.register(new AppetizingFoodItem("syndicatebomb", "Somebody set us up the bomb!", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F, new ApplyEffectsConsumeEffect(new StatusEffectInstance(AppetizersInit.TIMEBOMB, 1200))), "syndicatebomb");
         AppetizersInit.register(new AppetizingFoodItem("syndicatesoverseer", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "syndicatesoverseer");
         AppetizersInit.register(new AppetizingFoodItem("teaglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "teaglass");
         AppetizersInit.register(new AppetizingFoodItem("tequillaglass", "", true, 4, 4, SoundEvents.ENTITY_GENERIC_DRINK, 2.25F), "tequillaglass");
@@ -262,10 +262,9 @@ public class AppetizersDrinks {
         drbreath.add(new StatusEffectInstance(StatusEffects.RESISTANCE, 600, 1));
         drbreath.add(new StatusEffectInstance(StatusEffects.REGENERATION, 600, 1));
 
-        floko.add(new StatusEffectInstance(StatusEffects.SPEED, 600, 4));
-        floko.add(new StatusEffectInstance(StatusEffects.HASTE, 600, 4));
-        floko.add(new StatusEffectInstance(StatusEffects.POISON, 600, 9));
-        floko.add(new StatusEffectInstance(StatusEffects.WITHER, 600, 9));
+        floko.add(new StatusEffectInstance(AppetizersInit.HEART_ATTACK, 1200));
+        floko.add(new StatusEffectInstance(StatusEffects.SPEED, 1200, 4));
+        floko.add(new StatusEffectInstance(StatusEffects.HASTE, 1200, 4));
 
         toxins.add(new StatusEffectInstance(StatusEffects.POISON, 600, 4));
         toxins.add(new StatusEffectInstance(StatusEffects.WITHER, 600, 4));

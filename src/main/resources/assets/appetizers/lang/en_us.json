@@ -292,11 +292,17 @@
   "item.appetizers.xenobasher": "Xeno Basher",
   "item.appetizers.zombiecocktail": "Zombie Cocktail",
 
+  "effect.appetizers.dread": "Dread",
   "effect.appetizers.cogchamp": "Coggers!",
   "effect.appetizers.silenced": "Silenced",
-  "effect.appetizers.dread": "Dread",
+  "effect.appetizers.timebomb": "Ticking Time Bomb",
+  "effect.appetizers.chrono_anchor": "Chrono Anchor",
+  "effect.appetizers.sheer_heart_attack": "シアーハートアタック",
 
-  "death.attack.kimchi": "%1$s couldn't handle the spice.",
-  "death.attack.dread": "%1$s didn't read the warning label.",
-  "death.attack.drgibb": "%1$s experienced medical malpractice."
+  "death.attack.kimchi": "%1$s couldn't handle the spice",
+  "death.attack.sheer_heart_attack": "%1$s's heart gave out",
+  "death.attack.dread": "%1$s didn't read the warning label",
+  "death.attack.drgibb": "%1$s experienced medical malpractice",
+  "death.attack.timebomb": "%1$s was blown up by a Syndicate Bomb",
+  "death.attack.timebomb.player": "%1$s was blown up by a Syndicate Bomb set off by %2$s"
 }
