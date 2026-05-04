@@ -15,7 +15,12 @@ import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Pair;
+import net.minecraft.util.math.Vec3d;
 
 public class ChronoAnchorAtHome extends StatusEffect {
     private static final HashMap<UUID, EidosEntry> EIDOS_CHANGELOG = new HashMap<>();
@@ -74,43 +79,56 @@ public class ChronoAnchorAtHome extends StatusEffect {
         }
 
         StatusEffectInstance effect = entity.getStatusEffect(AppetizersInit.CHRONO_ANCHOR);
-        if (effect != null && effect.getDuration() <= 1) {
-            EidosEntry entry = EIDOS_CHANGELOG.get(uuid);
-            entity.requestTeleport(entry.position().x, entry.position().y, entry.position().z);
-            entity.setAngles(entry.pitch().getLeft(), entry.yaw());
-            entity.setHealth(entry.health());
-            entity.setFireTicks(entry.fireTicks());
-            entity.setFrozenTicks(entry.frostTicks());
-            entity.age = entry.age();
-            entity.sidewaysSpeed = entry.sideways();
-            entity.upwardSpeed = entry.upward();
-            entity.forwardSpeed = entry.forward();
-            entity.bodyYaw = entry.limbYaw().getLeft();
-            entity.headYaw = entry.limbYaw().getRight();
-            entity.lastBodyYaw = entry.lastYaw().getLeft();
-            entity.lastHeadYaw = entry.lastYaw().getRight();
-            entity.lastPitch = entry.pitch().getRight();
+        if (effect != null) {
+            Vec3d pos = entity.getEntityPos();
+            int duration = effect.getDuration();
+            if (duration % 200 == 0) {
+                world.playSound(null, pos.x, pos.y, pos.z, SoundEvents.BLOCK_BELL_USE, SoundCategory.PLAYERS, 1F, 0F);
+            }
 
-            for (StatusEffectInstance instance : entity.getStatusEffects()) {
-                if (instance.getEffectType() != AppetizersInit.CHRONO_ANCHOR) {
-                    entity.removeStatusEffect(instance.getEffectType());
+            if (duration == 50) {
+                world.playSound(null, pos.x, pos.y, pos.z, SoundEvents.BLOCK_BELL_RESONATE, SoundCategory.PLAYERS, 10F, 1F);
+            }
+
+            if (duration <= 1) {
+                EidosEntry entry = EIDOS_CHANGELOG.get(uuid);
+                entity.requestTeleport(entry.position().x, entry.position().y, entry.position().z);
+                entity.setAngles(entry.pitch().getLeft(), entry.yaw());
+                entity.setHealth(entry.health());
+                entity.setFireTicks(entry.fireTicks());
+                entity.setFrozenTicks(entry.frostTicks());
+                entity.age = entry.age();
+                entity.sidewaysSpeed = entry.sideways();
+                entity.upwardSpeed = entry.upward();
+                entity.forwardSpeed = entry.forward();
+                entity.bodyYaw = entry.limbYaw().getLeft();
+                entity.headYaw = entry.limbYaw().getRight();
+                entity.lastBodyYaw = entry.lastYaw().getLeft();
+                entity.lastHeadYaw = entry.lastYaw().getRight();
+                entity.lastPitch = entry.pitch().getRight();
+
+                for (StatusEffectInstance instance : entity.getStatusEffects()) {
+                    if (instance.getEffectType() != AppetizersInit.CHRONO_ANCHOR) {
+                        entity.removeStatusEffect(instance.getEffectType());
+                    }
                 }
-            }
-            for (StatusEffectInstance instance : entry.effects()) {
-                entity.addStatusEffect(instance);
+                for (StatusEffectInstance instance : entry.effects()) {
+                    entity.addStatusEffect(instance);
+                }
+
+                if (entity instanceof PlayerEntity player) {
+                    EidosEntry.PlayerSpecific data = entry.playerdata();
+                    HungerManager manager = player.getHungerManager();
+                    manager.setFoodLevel(data.hunger());
+                    manager.setSaturationLevel(data.saturation());
+                    player.experienceLevel = data.level();
+                    player.totalExperience = data.total();
+                    player.experienceProgress = data.progress();
+                }
+
+                EIDOS_CHANGELOG.remove(entity.getUuid());
             }
 
-            if (entity instanceof PlayerEntity player) {
-                EidosEntry.PlayerSpecific data = entry.playerdata();
-                HungerManager manager = player.getHungerManager();
-                manager.setFoodLevel(data.hunger());
-                manager.setSaturationLevel(data.saturation());
-                player.experienceLevel = data.level();
-                player.totalExperience = data.total();
-                player.experienceProgress = data.progress();
-            }
-
-            EIDOS_CHANGELOG.remove(entity.getUuid());
         }
 
         return super.applyUpdateEffect(world, entity, amplifier);
