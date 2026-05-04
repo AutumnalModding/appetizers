@@ -5,8 +5,8 @@ import net.minecraft.sound.SoundEvents;
 
 public class AppetizersBreads {
     public static void init() {
-        AppetizersInit.register(new AppetizingFoodItem("xenomeat", "", false, 10, 10, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "xenomeat");
         AppetizersInit.register(new AppetizingFoodItem("baguette", "", false, 10, 10, SoundEvents.ENTITY_GENERIC_EAT, 3.25F), "baguette");
+        AppetizersInit.register(new AppetizingFoodItem("xenomeat", "", false, 10, 10, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "xenomeat");
         AppetizersInit.register(new AppetizingFoodItem("spidermeat", "", false, 10, 10, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "spidermeat");
         AppetizersInit.register(new AppetizingFoodItem("plainbread", "", false, 10, 10, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "plainbread");
         AppetizersInit.register(new AppetizingFoodItem("bananabread", "", false, 10, 10, SoundEvents.ENTITY_GENERIC_EAT, 4.0F), "bananabread");

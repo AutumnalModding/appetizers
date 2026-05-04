@@ -96,7 +96,6 @@
   "item.appetizers.pineapple": "Pineapple Pizza",
   "item.appetizers.mushroom": "Mushroom Pizza",
   "item.appetizers.sassysage": "Sassysage Pizza",
-  "item.appetizers.sausage": "Sausage Pizza",
   "item.appetizers.arnold": "Arnold's Pizza",
   "item.appetizers.uranium-pizza": "Uranium Pizza",
 
@@ -106,7 +105,6 @@
   "item.appetizers.pineapple-slice": "Slice of Pineapple Pizza",
   "item.appetizers.mushroom-slice": "Slice of Mushroom Pizza",
   "item.appetizers.sassysage-slice": "Slice of Sassysage Pizza",
-  "item.appetizers.sausage-slice": "Slice of Sausage Pizza",
   "item.appetizers.arnold-slice": "Slice of Arnold's Pizza",
   "item.appetizers.uranium-slice": "Slice of Uranium Pizza",
 
@@ -142,8 +140,8 @@
   "item.appetizers.trumpet-slice": "Slice of Spaceman's Trumpet Cake",
   "item.appetizers.suppermatter-shard": "Suppermatter Shard",
 
-  "item.appetizers.xenomeat": "Loaf of Xenomeat Bread",
   "item.appetizers.baguette": "Baguette",
+  "item.appetizers.xenomeat": "Loaf of Xenomeat Bread",
   "item.appetizers.spidermeat": "Loaf of Spidermeat Bread",
   "item.appetizers.plainbread": "Loaf of Plain Bread",
   "item.appetizers.bananabread": "Loaf of Banana Bread",
@@ -151,6 +149,7 @@
   "item.appetizers.mimana": "Loaf of Mimana Bread",
   "item.appetizers.meatbread": "Loaf of Meat Bread",
   "item.appetizers.creamcheese": "Loaf of Cream Cheese Bread",
+  "item.appetizers.sausage": "Loaf of Sausage Bread",
 
   "item.appetizers.xenomeat-slice": "Slice of Xenomeat Bread",
   "item.appetizers.baguette-slice": "Baguette",
@@ -162,6 +161,7 @@
   "item.appetizers.meatbread-slice": "Slice of Meat Bread",
   "item.appetizers.creamcheese-slice": "Slice of Cream Cheese Bread",
   "item.appetizers.garlic-slice": "Slice of Garlic Bread",
+  "item.appetizers.sausage-slice": "Slice of Sausage Bread",
 
   "item.appetizers.grilled-cheese": "Grilled Cheese Sandwich",
   "item.appetizers.jelly-toast": "Toast with Jelly",
