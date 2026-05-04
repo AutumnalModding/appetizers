@@ -58,11 +58,11 @@ public class AppetizersInit implements ModInitializer {
 
         AppetizersIceCreams.init();
         AppetizersMiscFood.init();
-        AppetizersSoups.init();
         AppetizersBreads.init();
         AppetizersCakes.init();
         AppetizersPies.init();
         AppetizersPizzas.init();
+        AppetizersSoups.init();
         AppetizersDrinks.init();
 
         Registry.register(Registries.BLOCK, Identifier.of("appetizers", "jar"), JAR);
