@@ -35,5 +35,7 @@ public class AppetizersMiscFood {
         AppetizersInit.register(new AppetizingFoodItem("omelette", "", false, 12, 8, SoundEvents.ENTITY_GENERIC_EAT, 4F), "omelette");
         AppetizersInit.register(new AppetizingFoodItem("ribs", "", false, 12, 8, SoundEvents.ENTITY_GENERIC_EAT, 4F), "ribs");
         AppetizersInit.register(new AppetizingFoodItem("yakiimo", "", false, 10, 6, SoundEvents.ENTITY_GENERIC_EAT, 3.5F), "yakiimo");
+
+        AppetizersInit.register(new AppetizingFoodItem("rice_pile", "", false, 2, 0, SoundEvents.ENTITY_GENERIC_EAT, 0.5F), "rice_pile");
     }
 }

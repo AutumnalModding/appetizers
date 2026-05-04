@@ -11,13 +11,6 @@ public class NonUpdatingSEI extends StatusEffectInstance {
         super(effect, duration, amplifier);
     }
 
-    @Override
-    public boolean update(ServerWorld world, LivingEntity entity, Runnable hiddenEffectCallback) {
-        return false;
-    }
-
-    @Override
-    public void tickClient() {
-        // NOP
-    }
+    @Override public void tickClient() { /* NOP */ }
+    @Override public boolean update(ServerWorld world, LivingEntity entity, Runnable hiddenEffectCallback) { return false; }
 }
